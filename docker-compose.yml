@@ -16,7 +16,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./startup_together:/startup_together
+      - ./frontend:/startup_together
     depends_on:
       - db
     tty: true
