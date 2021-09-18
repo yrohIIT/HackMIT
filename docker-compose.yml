@@ -27,7 +27,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_django
-    command: python manage.py runserver 0.0.0.0:8000
+    command: >
+      sh -c "chmod 777 /code/
+      && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./rest_api:/code
     ports:
@@ -36,7 +38,7 @@ services:
       - db
 
   db:
-    container_name: postgres
+    container_name: database
     image: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data
