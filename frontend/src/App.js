@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from 'react';
 
@@ -65,6 +65,7 @@ class App extends React.Component {
 
       // Inside form, write a button that calls a function
       return (
+        
         <div style = {{width: '50vw', height: '50vh', margin:100}}>
           <form>
             <h1>Find start ups near you!</h1>
@@ -73,7 +74,8 @@ class App extends React.Component {
               type="text" id="distance"
             />
           </form>
-
+              <button type="button">Find nearby startups</button>
+              
           <thead>
           <tr>
             {labels.map((item, index) => {
@@ -82,6 +84,7 @@ class App extends React.Component {
           </tr>
         </thead>
         <tbody>
+          
           {dis_list.slice(0, dis_list.length).map((item, index) => {
             return (
               <tr>
