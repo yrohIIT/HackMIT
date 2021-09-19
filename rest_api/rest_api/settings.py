@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%wlhhaurve2^4s_+ua%+w17o-jsji%p=o-&*3h7f7+s#bjz&4r'
+SECRET_KEY = 'e_gxp$#=_bqusi(e!+r2t%#793auy#hct5h8x94d3o3(1wi^=2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,28 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework',
-    'rest_framework.authtoken',
-    'djoser',
-    'corsheaders',
+    'api',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    )
-}
 
 ROOT_URLCONF = 'rest_api.urls'
 
@@ -89,10 +79,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-	'USER': 'postgres',
-	'PASSWORD': 'postgres',
-	'HOST': 'db',
-	'PORT': 5432,
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
@@ -134,15 +124,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
-
-STREAM_API_KEY = "atc98zy2z79t" # https://getstream.io/dashboard/
-STREAM_API_SECRET = "6ssqbhdy2rdjxmb6hgum98m66tcjqtgsv9cwwfzdrda8az2jdpjgqq675qdufxsb"
-DJOSER = {
-    'SERIALIZERS': {
-        'token': 'auth.serializers.StreamTokenSerializer',
-    }
-}
-
-CORS_ORIGIN_ALLOW_ALL = True
