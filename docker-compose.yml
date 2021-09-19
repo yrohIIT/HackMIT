@@ -38,7 +38,7 @@ services:
       - db
 
   db:
-    container_name: database
+    container_name: postgres
     image: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data
